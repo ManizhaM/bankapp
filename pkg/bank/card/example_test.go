@@ -84,7 +84,7 @@ func ExampleAddBonus_limit() {
 
 // Autotest for Function of counting sum on card balances - Total
 func ExampleTotal(){
-	cards := []types.Card{
+	fmt.Println(Total([]types.Card{
 		{
 			Balance: 10_000_00,
 			Active: true,
@@ -97,7 +97,28 @@ func ExampleTotal(){
 			Balance: 5000,
 			Active: true,
 		},
-	}
-	fmt.Println(Total(cards))
-	//Output: 1005000	
+	}))
+	fmt.Println(Total([]types.Card{
+		{
+			Balance: 10_000_00,
+			Active: true,
+		},
+	}))
+	fmt.Println(Total([]types.Card{
+		{
+			Balance: 10_000_00,
+			Active: false,
+		},
+	}))
+	fmt.Println(Total([]types.Card{
+		{
+			Balance: -10_000_00,
+			Active: true,
+		},
+	}))
+	//Output: 
+	//1005000	
+	//1000000	
+	//0
+	//0
 }
