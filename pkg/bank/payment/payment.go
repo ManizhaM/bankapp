@@ -14,3 +14,17 @@ func Max(payments []types.Payment)types.Payment{
 	}
 	return max
 }
+
+func PaymentSources(cards []types.Card) []types.PaymentSource{
+	var PaymentSource []types.PaymentSource
+	for index := range cards {
+		if(cards[index].Active && cards[index].Balance>0){
+		PaymentSource = append(PaymentSource, types.PaymentSource{
+			Type: "card", 
+			Number: cards[index].PAN, 
+			Balance: cards[index].Balance,
+			}) 
+		}
+	}
+	return PaymentSource
+}

@@ -33,3 +33,10 @@ type Payment struct{
 	ID 		int
 	Amount	Money
 }
+
+// Источник оплаты
+type PaymentSource struct{
+	Type 	string
+	Number 	PAN
+	Balance Money
+}
